@@ -68,9 +68,9 @@ export class ResourcefulApi extends Api {
   setupModules (modulesToRegister = []) {
     console.time('api: setup modules')
 
-    for (const moduleName in modulesToRegister) {
+    modulesToRegister.map(moduleName => {
       this.registerModule(moduleName, this[moduleName])
-    }
+    })
 
     console.timeEnd('api: setup modules')
   }
